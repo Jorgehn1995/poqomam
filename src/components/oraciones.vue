@@ -387,7 +387,7 @@ export default {
         {
           "1": "Ma' tuq' tuq'  aak'ach",
           "2": "Ma' riluam ak'ach",
-          palabra: "La gallina clueca",
+          palabra: "La gallina culeca",
           correcta: "Ma' tuq' tuq'  aak'ach"
         },
         {
@@ -429,6 +429,7 @@ export default {
       console.log("espera");
       this.paso = 0;
       this.tiempo = 3;
+      this.preguntas_respondidas = [];
       this.conteo = setInterval(() => {
         this.tiempo = this.tiempo - 1;
       }, 1000);
@@ -449,13 +450,15 @@ export default {
         });
       }
       this.hechas.push(this.pregunta);
-      let respuestas = [this.mostrar_pregunta[1], this.mostrar_pregunta[2]];
-      for (let i = respuestas.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * i);
-        const temp = respuestas[i];
-        respuestas[i] = respuestas[j];
-        respuestas[j] = temp;
+
+      let n1 = Math.round(Math.random());
+      let respuestas = [];
+      if (n1 == 0) {
+        respuestas = [this.mostrar_pregunta[1], this.mostrar_pregunta[2]];
+      } else {
+        respuestas = [this.mostrar_pregunta[2], this.mostrar_pregunta[1]];
       }
+
       this.respuestas = respuestas;
       this.paso++;
     },

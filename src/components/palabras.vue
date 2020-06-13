@@ -509,6 +509,7 @@ export default {
       console.log("espera");
       this.paso = 0;
       this.tiempo = 3;
+      this.preguntas_respondidas = [];
       this.conteo = setInterval(() => {
         this.tiempo = this.tiempo - 1;
       }, 1000);

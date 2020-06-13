@@ -37,7 +37,7 @@
           <p class="subheading font-weight-regular">
             En este juego pondrás a prueba tus conocimientos
             <br />en el
-            <strong>Idioma Mapa Poqomam</strong>
+            <strong>Idioma Maya Poqomam</strong>
             <br />mientras aprendes nuevas palabras.
           </p>
 
