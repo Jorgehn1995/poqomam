@@ -10,8 +10,11 @@
   },
   "dependencies": {
     "core-js": "^3.6.4",
+    "firebase": "^7.15.4",
     "howler": "^2.2.0",
+    "v-viewer": "^1.5.1",
     "vue": "^2.6.11",
+    "vuefire": "^2.2.2",
     "vuetify": "^2.2.11"
   },
   "devDependencies": {

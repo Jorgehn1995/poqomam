@@ -161,9 +161,6 @@ export default {
   props: ["volume"],
   mounted() {
     this.empezar();
-    //this.fondo = new Audio(require("@/assets/lobby.mp3")); // path to file
-    //this.fondo.volume = 0.2;
-    //this.fondo.play();
   },
   data() {
     return {
@@ -175,244 +172,244 @@ export default {
       dialog: false,
       preguntas: [
         {
-          "1": "Ma' nim kuayuh",
-          "2": "Ma' nim ruaq kuayuh",
-          palabra: "El caballo grande",
-          correcta: "Ma' nim kuayuh"
+          "1": "Ma' nim kuayuh.",
+          "2": "Ma' q'eq kuayuh.",
+          palabra: "El caballo grande.",
+          correcta: "Ma' nim kuayuh."
         },
         {
-          "1": "Ma' eht tz'e'",
-          "2": "Ma' eht imul",
-          palabra: "El perro bravo",
-          correcta: "Ma' eht tz'e'"
+          "1": "Ma' eht tz'e'.",
+          "2": "Ma' eht waakax.",
+          palabra: "El perro bravo.",
+          correcta: "Ma' eht tz'e'."
         },
         {
-          "1": "Ch'un q'an ixiim",
-          "2": "Ch'un q'an kanayah",
-          palabra: "El maíz amarillo",
-          correcta: "Ch'un q'an ixiim"
+          "1": "Ch'un q'an ixiim.",
+          "2": "Ma' suq tilul.",
+          palabra: "El maíz amarillo.",
+          correcta: "Ch'un q'an ixiim."
         },
         {
-          "1": "Ma' ki' tapaal",
-          "2": "Ma' k'ah tapaal",
-          palabra: "El nance dulce",
-          correcta: "Ma' ki' tapaal"
+          "1": "Ma' ki' tapaal.",
+          "2": "Ma' k'ah tapaal.",
+          palabra: "El nance dulce.",
+          correcta: "Ma' ki' tapaal."
         },
         {
-          "1": "Ma' riluam kiej",
-          "2": "Ma' nim kiej",
-          palabra: "El venado pequeño",
-          correcta: "Ma' riluam kiej"
+          "1": "Ma' riluam kiej.",
+          "2": "Ma' nim kiej.",
+          palabra: "El venado pequeño.",
+          correcta: "Ma' riluam kiej."
         },
         {
-          "1": "Ma' pi'y ch'ua",
-          "2": "Ma' pi'y imul",
-          palabra: "El ratón pequeñito",
-          correcta: "Ma' pi'y ch'ua"
+          "1": "Ma' pi'y ch'ua.",
+          "2": "Ma' pi'y imul.",
+          palabra: "El ratón pequeñito.",
+          correcta: "Ma' pi'y ch'ua."
         },
         {
-          "1": "Ma' suq muuy",
-          "2": "Ma' ch'am muuy",
-          palabra: "El chico delicioso",
-          correcta: "Ma' suq muuy"
+          "1": "Ma' suq muuy.",
+          "2": "Ma' ch'am muuy.",
+          palabra: "El chicozapote delicioso.",
+          correcta: "Ma' suq muuy."
         },
         {
-          "1": "Ma' saq imul",
-          "2": "Ma' suq imul",
-          palabra: "El conejo blanco",
-          correcta: "Ma' saq imul"
+          "1": "Ma' saq imul.",
+          "2": "Ma'suq imul.",
+          palabra: "El conejo blanco.",
+          correcta: "Ma' saq imul."
         },
         {
-          "1": "Ch'un b'ajal paatu'",
-          "2": "Ch'un ch'ulik paatu'",
-          palabra: "El pato bonito",
-          correcta: "Ch'un b'ajal paatu'"
+          "1": "Ch'un b'ajal paatu'.",
+          "2": "Ch'un ch'ulik paatu'.",
+          palabra: "El pato bonito.",
+          correcta: "Ch'un b'ajal paatu'."
         },
         {
-          "1": "Ma' chaq'lam pix",
-          "2": "Ma' chuh pix",
-          palabra: "El tomate maduro",
-          correcta: "Ma' chaq'lam pix"
+          "1": "Ma' chaq'lam pix.",
+          "2": "Ma' chuh pix.",
+          palabra: "El tomate maduro.",
+          correcta: "Ma' chaq'lam pix."
         },
         {
-          "1": "Ma' ki' k'uum",
-          "2": "Ma' suq k'uum",
-          palabra: "El ayote dulce",
-          correcta: "Ma' ki' k'uum"
+          "1": "Ma' ki' k'uum.",
+          "2": "Ma' suq k'uum.",
+          palabra: "El ayote dulce.",
+          correcta: "Ma' ki' k'uum."
         },
         {
-          "1": "Ma' q'an kanayah",
-          "2": "Ma' q'an tapaal",
-          palabra: "El banano amarillo",
-          correcta: "Ma' q'an kanayah"
+          "1": "Ma' q'an kanayah.",
+          "2": "Ma' q'an tapaal.",
+          palabra: "El banano amarillo.",
+          correcta: "Ma' q'an kanayah."
         },
         {
-          "1": "Ma' nim pak",
-          "2": "Ma' riluam pak",
-          palabra: "La anona grande",
-          correcta: "Ma' nim pak"
+          "1": "Ma' nim pak.",
+          "2": "Ma' riluam pak.",
+          palabra: "La anona grande.",
+          correcta: "Ma' nim pak."
         },
         {
-          "1": "Ma' ch'ulik ahq",
-          "2": "Ma' riluam ahq",
-          palabra: "El marrano sucio",
-          correcta: "Ma' ch'ulik ahq"
+          "1": "Ma' ch'ulik ahq.",
+          "2": "Ma' riluam ahq.",
+          palabra: "El marrano sucio.",
+          correcta: "Ma' ch'ulik ahq."
         },
         {
-          "1": "Ma' ch'am rum",
-          "2": "Ma' ch'am alamunix",
-          palabra: "El jocote ácido",
-          correcta: "Ma' ch'am rum"
+          "1": "Ma' ch'am rum.",
+          "2": "Ma' ch'am alamunix.",
+          palabra: "El jocote ácido.",
+          correcta: "Ma' ch'am rum."
         },
         {
-          "1": "Ma' riluam santiyes",
-          "2": "Ma' nim santiyes",
-          palabra: "La sandía pequeña",
-          correcta: "Ma' riluam santiyes"
+          "1": "Ma' riluam santiyes.",
+          "2": "Ma' nim santiyes.",
+          palabra: "La sandía pequeña.",
+          correcta: "Ma' riluam santiyes."
         },
         {
-          "1": "Ma' q'uun kok",
-          "2": "Ma' pi'y kok",
-          palabra: "La tortuga lenta",
-          correcta: "Ma' q'uun kok"
+          "1": "Ma' q'uun kok.",
+          "2": "Ma' pi'y kok.",
+          palabra: "La tortuga lenta.",
+          correcta: "Ma' q'uun kok."
         },
         {
-          "1": "Ma' k'oyiniel k'uay",
-          "2": "Ma' koloxoh k'uay",
-          palabra: "El mono juguetón",
-          correcta: "Ma' k'oyiniel k'uay"
+          "1": "Ma' k'oyiniel k'uay.",
+          "2": "Ma' koloxoh k'uay.",
+          palabra: "El mono juguetón.",
+          correcta: "Ma' k'oyiniel k'uay."
         },
         {
-          "1": "Ma' nim ruaq ijiij",
-          "2": "Ma' nim paam ijiij",
-          palabra: "La caña larga",
-          correcta: "Ma' nim ruaq ijiij"
+          "1": "Ma' nim ruaq ijiij.",
+          "2": "Ma' nim paam ijiij.",
+          palabra: "La caña larga.",
+          correcta: "Ma' nim ruaq ijiij."
         },
         {
-          "1": "Ma' nim aaxux",
-          "2": "Ma' pi'y aaxux",
-          palabra: "El ajo grande",
-          correcta: "Ma' nim aaxux"
+          "1": "Ma' nim aaxux.",
+          "2": "Ma' pi'y aaxux.",
+          palabra: "El ajo grande.",
+          correcta: "Ma' nim aaxux."
         },
         {
-          "1": "Ma' eht xojm",
-          "2": "Ma' eht uaw",
-          palabra: "El coyote bravo",
-          correcta: "Ma' eht xojm"
+          "1": "Ma' eht xojm.",
+          "2": "Ma' eht uaw.",
+          palabra: "El coyote bravo.",
+          correcta: "Ma' eht xojm."
         },
         {
-          "1": "Ma' chuh pahar",
-          "2": "Ma' chuh ahq",
-          palabra: "El zorrillo maloliente",
-          correcta: "Ma' chuh pahar"
+          "1": "Ma' chuh pahar.",
+          "2": "Ma' chuh ahq.",
+          palabra: "El zorrillo maloliente.",
+          correcta: "Ma' chuh pahar."
         },
         {
-          "1": "Ma' suq tilul",
-          "2": "Ma' ki' tilul",
-          palabra: "El zapote delicioso",
-          correcta: "Ma' suq tilul"
+          "1": "Ma' suq tilul.",
+          "2": "Ma' ki' tilul.",
+          palabra: "El zapote delicioso.",
+          correcta: "Ma' suq tilul."
         },
         {
-          "1": "Ma' nim paam tz'iin",
-          "2": "Ma' nim paam kuayuh",
-          palabra: "La yuca gruesa",
-          correcta: "Ma' nim paam tz'iin"
+          "1": "Ma' nim paam tz'iin.",
+          "2": "Ma' nim paam kuayuh.",
+          palabra: "La yuca gruesa.",
+          correcta: "Ma' nim paam tz'iin."
         },
         {
-          "1": "Ma' ch'am alamunix",
-          "2": "Ma' ch'am araan",
-          palabra: "El limón ácido",
-          correcta: "Ma' ch'am alamunix"
+          "1": "Ma' ch'am alamunix.",
+          "2": "Ma' ch'am araa.",
+          palabra: "El limón ácido.",
+          correcta: "Ma' ch'am alamunix."
         },
         {
-          "1": "Ma' koloxoh uaw",
-          "2": "Ma' koloxoh xojm",
-          palabra: "El mapache comilón",
-          correcta: "Ma' koloxoh uaw"
+          "1": "Ma' koloxoh uaw.",
+          "2": "Ma' koloxoh xojm.",
+          palabra: "El mapache comilón.",
+          correcta: "Ma' koloxoh uaw."
         },
         {
-          "1": "Ma' kaq sewayah",
-          "2": "Ma' kaq pix",
-          palabra: "La cebolla colorada",
-          correcta: "Ma' kaq sewayah"
+          "1": "Ma' kaq sewayah.",
+          "2": "Ma' kaq pix.",
+          palabra: "La cebolla colorada.",
+          correcta: "Ma' kaq sewayah."
         },
         {
-          "1": "Ma' suq ichaaj",
-          "2": "Ma' ki' ichaaj",
-          palabra: "El delicioso chipilin",
-          correcta: "Ma' suq ichaaj"
+          "1": "Ma' suq ichaaj.",
+          "2": "Ma' ki' ichaaj.",
+          palabra: "El delicioso chipilin.",
+          correcta: "Ma' suq ichaaj."
         },
         {
-          "1": "Ch'un q'eq kinaq'",
+          "1": "Ch'un q'eq kinaq'.",
           "2": "Ch'un saq kinaq'",
-          palabra: "El frijol negro",
-          correcta: "Ch'un q'eq kinaq'"
+          palabra: "El frijol negro.",
+          correcta: "Ch'un q'eq kinaq'."
         },
         {
-          "1": "Ma' suq sies",
-          "2": "Ma' suq ichaaj",
-          palabra: "El delicioso bledo",
-          correcta: "Ma' suq sies"
+          "1": "Ma' suq sies.",
+          "2": "Ma' suq ichaaj.",
+          palabra: "El delicioso bledo.",
+          correcta: "Ma' suq sies."
         },
         {
-          "1": "Ma' sirik riij b'ihiil",
-          "2": "Ma' b'ichiniel aak'ach",
-          palabra: "El gallo giro",
-          correcta: "Ma' sirik riij b'ihiil"
+          "1": "Ma' sirik b'ihiil.",
+          "2": "Ma' b'ichiniel aak'ach.",
+          palabra: "El gallo giro.",
+          correcta: "Ma' sirik b'ihiil."
         },
         {
-          "1": "Ch'un b'ajal kuuk",
-          "2": "Ch'un riluam kuuk",
-          palabra: "La ardilla bonita",
-          correcta: "Ch'un b'ajal kuuk"
+          "1": "Ch'un b'ajal kuuk.",
+          "2": "Ch'un riluam kuuk.",
+          palabra: "La ardilla bonita.",
+          correcta: "Ch'un b'ajal kuuk."
         },
         {
-          "1": "Ma' raah iik",
-          "2": "Ma' ch'am alamunix",
-          palabra: "El chile picante",
-          correcta: "Ma' raah iik"
+          "1": "Ma' raah iik.",
+          "2": "Ma' ch'am alamunix.",
+          palabra: "El chile picante.",
+          correcta: "Ma' raah iik."
         },
         {
-          "1": "Ma' q'eq tz'e'",
-          "2": "Ma' q'eq ahq",
-          palabra: "El perro negro",
-          correcta: "Ma' q'eq tz'e'"
+          "1": "Ma' q'eq tz'e'.",
+          "2": "Ma' q'eq ahq.",
+          palabra: "El perro negro.",
+          correcta: "Ma' q'eq tz'e'."
         },
         {
-          "1": "Ma' b'ichiniel piip",
-          "2": "Ma' sirik riij aak'ach",
-          palabra: "El chompipe jiro",
-          correcta: "Ma' b'ichiniel piip"
+          "1": "Ma' b'ichiniel piip.",
+          "2": "Ma' sirik riij piip.",
+          palabra: "El chompipe cantor.",
+          correcta: "Ma' b'ichiniel piip."
         },
         {
-          "1": "Ma' tuq' tuq'  aak'ach",
-          "2": "Ma' riluam ak'ach",
-          palabra: "La gallina culeca",
-          correcta: "Ma' tuq' tuq'  aak'ach"
+          "1": "Ma' tuq' tuq' aak'ach.",
+          "2": "Ma' riluam aak'ach.",
+          palabra: "La gallina clueca.",
+          correcta: "Ma' tuq' tuq' aak'ach."
         },
         {
-          "1": "Ma' ki' araan",
-          "2": "Ma' ch'am araan",
-          palabra: "La naranja dulce",
-          correcta: "Ma' ki' araan"
+          "1": "Ma' ki' araan.",
+          "2": "Ma' ch'am araan.",
+          palabra: "La naranja dulce.",
+          correcta: "Ma' ki' araan."
         },
         {
-          "1": "Ma' riluam aak'ach",
-          "2": "Ma' pi'y b'ihiil",
-          palabra: "El pollo pequeño",
-          correcta: "Ma' riluam aak'ach"
+          "1": "Ma' riluam aak'ach.",
+          "2": "Ma' pi'y b'ihiil.",
+          palabra: "El pollo pequeño.",
+          correcta: "Ma' riluam aak'ach."
         },
         {
-          "1": "Ma' nim waakax",
-          "2": "Ma' saq wakax",
-          palabra: "La vaca grande",
-          correcta: "Ma' nim waakax"
+          "1": "Ma' nim waakax.",
+          "2": "Ma' saq waakax.",
+          palabra: "La vaca grande.",
+          correcta: "Ma' nim waakax."
         },
         {
-          "1": "Ma' sikiil mis",
-          "2": "Ma' k'oyiniel mis",
-          palabra: "El gato perezozo",
-          correcta: "Ma' sikiil mis"
+          "1": "Ma' sikiil mis.",
+          "2": "Ma' k'oyiniel mis.",
+          palabra: "El gato perezoso.",
+          correcta: "Ma' sikiil mis."
         }
       ],
       respuestas: [],

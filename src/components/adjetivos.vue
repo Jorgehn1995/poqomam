@@ -161,9 +161,6 @@ export default {
   props: ["volume"],
   mounted() {
     this.empezar();
-    //this.fondo = new Audio(require("@/assets/lobby.mp3")); // path to file
-    //this.fondo.volume = 0.2;
-    //this.fondo.play();
   },
   data() {
     return {
@@ -287,12 +284,12 @@ export default {
           correcta: "Chuh"
         },
         {
-          "1": "Ki'",
+          "1": "Ch'am",
           "2": "Saq",
           "3": "B'ajal",
           "4": "Chaq'lam",
           palabra: "Ácido",
-          correcta: "Ki'"
+          correcta: "Ch'am"
         },
         {
           "1": "Koloxoh",
@@ -307,7 +304,7 @@ export default {
           "2": "Q'an",
           "3": "Riluam",
           "4": "Eht",
-          palabra: "Rojo-Colorado",
+          palabra: "Rojo",
           correcta: "Kaq"
         },
         {

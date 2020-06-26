@@ -43,6 +43,7 @@
 
           <v-btn depressed x-large dark @click="select()" color="green ">Jugar</v-btn>
         </div>
+
         <p class="grey--text text--darken-1">
           <i>
             <small>
@@ -60,6 +61,8 @@
           >
             <i>
               <small>Programación y Desarrollo PWA</small>
+              <br />
+              <small>Versión 0.3</small>
             </i>
           </a>
         </p>
@@ -101,10 +104,12 @@
 import Oraciones from "./oraciones.vue";
 import Adjetivos from "./adjetivos.vue";
 import Palabras from "./palabras.vue";
+
 export default {
   components: { Palabras, Adjetivos, Oraciones },
 
   mounted() {},
+
   data() {
     return {
       start: false,

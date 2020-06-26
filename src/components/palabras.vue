@@ -161,9 +161,6 @@ export default {
   props: ["volume"],
   mounted() {
     this.empezar();
-    //this.fondo = new Audio(require("@/assets/lobby.mp3")); // path to file
-    //this.fondo.volume = 0.2;
-    //this.fondo.play();
   },
   data() {
     return {
@@ -235,7 +232,7 @@ export default {
           "2": "Alamunix",
           "3": "Rum",
           "4": "Pak",
-          palabra: "Chico",
+          palabra: "Chicozapote  Muuy",
           correcta: "Muuy"
         },
         {
@@ -335,18 +332,18 @@ export default {
           correcta: "K'uum"
         },
         {
-          "1": "Ak'ach",
+          "1": "Aak'ach",
           "2": "B'ihiil",
           "3": "Paatu'",
           "4": "Mis",
           palabra: "Pollo",
-          correcta: "Ak'ach"
+          correcta: "Aak'ach"
         },
         {
           "1": "B'ihiil",
           "2": "Piip",
-          "3": "Ak'ach",
-          "4": "wakax",
+          "3": "Aak'ach",
+          "4": "Waakax",
           palabra: "Gallo",
           correcta: "B'ihiil"
         },
@@ -407,12 +404,12 @@ export default {
           correcta: "Ahq"
         },
         {
-          "1": "Tutak'ach",
+          "1": "Tuutak'ach",
           "2": "Wuruh",
           "3": "Piip",
           "4": "Ak'ach",
           palabra: "Gallina",
-          correcta: "Tutak'ach"
+          correcta: "Tuutak'ach"
         },
         {
           "1": "Imul",
