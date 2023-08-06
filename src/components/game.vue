@@ -13,7 +13,14 @@
       </div>
 
       <v-spacer></v-spacer>
-      <v-btn depressed color="white" class="grey--text" dark icon @click="volume=!volume">
+      <v-btn
+        depressed
+        color="white"
+        class="grey--text"
+        dark
+        icon
+        @click="volume = !volume"
+      >
         <v-icon v-if="volume">volume_up</v-icon>
         <v-icon v-else>volume_off</v-icon>
       </v-btn>
@@ -24,7 +31,7 @@
         dark
         icon
         v-if="start"
-        @click="start=false,tipo=''"
+        @click="(start = false), (tipo = '')"
       >
         <v-icon>home</v-icon>
       </v-btn>
@@ -32,7 +39,9 @@
     <v-row class="text-center" align="center" justify="center">
       <v-col v-if="!start">
         <div class="lb">
-          <h1 class="font-weight-bold mb-3 warning--text">¿Listo para Jugar?</h1>
+          <h1 class="font-weight-bold mb-3 warning--text">
+            ¿Listo para Jugar?
+          </h1>
 
           <p class="subheading font-weight-regular">
             En este juego pondrás a prueba tus conocimientos
@@ -41,10 +50,12 @@
             <br />mientras aprendes nuevas palabras.
           </p>
 
-          <v-btn depressed x-large dark @click="select()" color="green ">Jugar</v-btn>
+          <v-btn depressed x-large dark @click="select()" color="green "
+            >Jugar</v-btn
+          >
         </div>
 
-        <p class="grey--text text--darken-1">
+        <p class="grey--text text--darken-1" v-if="false">
           <i>
             <small>
               Este es un Proyecto de Mejoramiento Educativo
@@ -62,36 +73,59 @@
             <i>
               <small>Programación y Desarrollo PWA</small>
               <br />
+              <small>Jorge Hernández</small>
+              <br />
               <small>Versión 0.3</small>
             </i>
           </a>
         </p>
       </v-col>
-      <v-col v-if="start && tipo=='palabras'" class="pt-0">
+      <v-col v-if="start && tipo == 'palabras'" class="pt-0">
         <palabras :volume="volume" @reset="reset"></palabras>
       </v-col>
-      <v-col v-if="start && tipo=='adjetivos'" class="pt-0">
+      <v-col v-if="start && tipo == 'adjetivos'" class="pt-0">
         <adjetivos :volume="volume" @reset="reset"></adjetivos>
       </v-col>
-      <v-col v-if="start && tipo=='oraciones'" class="pt-0">
+      <v-col v-if="start && tipo == 'oraciones'" class="pt-0">
         <oraciones :volume="volume" @reset="reset"></oraciones>
       </v-col>
     </v-row>
 
     <v-dialog v-model="seleccionar" persistent max-width="350">
       <v-card>
-        <v-card-title class="green--text body-1">Selecciona el tipo de juego</v-card-title>
+        <v-card-title class="green--text body-1"
+          >Selecciona el tipo de juego</v-card-title
+        >
         <v-card-text>
           <br />
-          <v-btn block text @click="tipo='palabras',seleccionar=false,start=true">Palabras</v-btn>
+          <v-btn
+            block
+            text
+            @click="(tipo = 'palabras'), (seleccionar = false), (start = true)"
+            >Palabras</v-btn
+          >
           <br />
-          <v-btn block text @click="tipo='adjetivos',seleccionar=false,start=true">Adjetivos</v-btn>
+          <v-btn
+            block
+            text
+            @click="(tipo = 'adjetivos'), (seleccionar = false), (start = true)"
+            >Adjetivos</v-btn
+          >
           <br />
-          <v-btn block text @click="tipo='oraciones',seleccionar=false,start=true">Oraciones</v-btn>
+          <v-btn
+            block
+            text
+            @click="(tipo = 'oraciones'), (seleccionar = false), (start = true)"
+            >Oraciones</v-btn
+          >
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="grey--text text--darken-3" text @click="seleccionar = false">
+          <v-btn
+            color="grey--text text--darken-3"
+            text
+            @click="seleccionar = false"
+          >
             <v-icon>keyboard_arrow_left</v-icon>volver
           </v-btn>
         </v-card-actions>
@@ -115,7 +149,7 @@ export default {
       start: false,
       seleccionar: false,
       tipo: "",
-      volume: true
+      volume: true,
     };
   },
   methods: {
@@ -124,8 +158,8 @@ export default {
     },
     select() {
       this.seleccionar = true;
-    }
-  }
+    },
+  },
 };
 </script>
 
