@@ -1,30 +1,32 @@
 <template>
   <div>
-    <v-row v-if="paso==0" fill-height fluid>
+    <v-row v-if="paso == 0" fill-height fluid>
       <v-col cols="12" align="center" justify="center">
         <transition name="slide-fade">
           <div>
             <h1 class="grey--text text--darken-2">¿Estás Listo?</h1>
             <br />
-            <h1 style="font-size:200px; " class="grey--text text--darken-2">{{tiempo}}</h1>
+            <h1 style="font-size:200px; " class="grey--text text--darken-2">
+              {{ tiempo }}
+            </h1>
           </div>
         </transition>
       </v-col>
     </v-row>
     <transition name="slide-fade">
-      <v-row v-if="paso>0 && paso<11">
+      <v-row v-if="paso > 0 && paso < 11">
         <v-col cols="12" class="pt-0">
           <v-row>
             <v-col cols="12">
               <v-row>
                 <v-col cols="6" class="py-0 my-0">
                   <div align="left">
-                    <span>Pregunta {{paso}} de 10</span>
+                    <span>Pregunta {{ paso }} de 10</span>
                   </div>
                 </v-col>
                 <v-col cols="6" class="py-0 my-0">
                   <div align="right">
-                    <div align="right">Correctas {{correctas.length}}</div>
+                    <div align="right">Correctas {{ correctas.length }}</div>
                   </div>
                 </v-col>
               </v-row>
@@ -40,24 +42,27 @@
             </v-col>
             <v-col cols="12" class="mb-5">
               <v-card elevation="0" style="height:200px;">
-                <div class="grey--text text--darken-3" align="center" style="padding-top:10px;">
+                <div
+                  class="grey--text text--darken-3"
+                  align="center"
+                  style="padding-top:10px;"
+                >
                   <h5>
                     ¿Como se escribe la siguiente palabra
                     <br />en Idioma Poqomam?
                   </h5>
                   <br />
-                  <h2
-                    class="grey--text text--darken-2"
-                    style="font-size:60px;"
-                  >{{mostrar_pregunta.palabra}}</h2>
+                  <h2 class="grey--text text--darken-2" style="font-size:60px;">
+                    {{ mostrar_pregunta.palabra }}
+                  </h2>
                 </div>
               </v-card>
             </v-col>
-            <template v-for="(respuesta,index) in respuestas">
+            <template v-for="(respuesta, index) in respuestas">
               <v-col
-                :key="'r'+index"
+                :key="'r' + index"
                 cols="6"
-                :class="(index%2)?'pt-0 pr-3':'pt-0 pr-1'"
+                :class="index % 2 ? 'pt-0 pr-3' : 'pt-0 pr-1'"
                 align="center"
                 justify="center"
                 md="6"
@@ -70,10 +75,12 @@
                     @click="responder(respuesta)"
                   >
                     <div
-                      :class="hover?'info--text':'grey--text text--darken-1'"
+                      :class="
+                        hover ? 'info--text' : 'grey--text text--darken-1'
+                      "
                       style="height:80px; padding-top:25px;"
                     >
-                      <h2>{{respuesta}}</h2>
+                      <h2>{{ respuesta }}</h2>
                     </div>
                   </v-card>
                 </v-hover>
@@ -84,17 +91,23 @@
       </v-row>
     </transition>
     <transition name="slide-fade">
-      <v-row align="center" v-if="paso>10" justify="center">
+      <v-row align="center" v-if="paso > 10" justify="center">
         <v-col cols="12" class="mb-5">
           <v-card elevation="0" style="height:200px;">
-            <div class="grey--text text--darken-3" align="center" style="padding-top:10px; ">
+            <div
+              class="grey--text text--darken-3"
+              align="center"
+              style="padding-top:10px; "
+            >
               <h3 style="font-size:20px;">
                 - Palabras -
                 <br />Respuestas Correctas
               </h3>
               <br />
               <div style="height:150px;">
-                <h2 class="grey--text text--darken-2" style="font-size:150px;">{{correctas.length}}</h2>
+                <h2 class="grey--text text--darken-2" style="font-size:150px;">
+                  {{ correctas.length }}
+                </h2>
               </div>
             </div>
           </v-card>
@@ -113,7 +126,15 @@
               <v-icon left>autorenew</v-icon>Intentar de Nuevo
             </v-btn>
             <br />
-            <v-btn x-large color="grey darken-1" small class="ma-3" @click="reset()" depressed dark>
+            <v-btn
+              x-large
+              color="grey darken-1"
+              small
+              class="ma-3"
+              @click="reset()"
+              depressed
+              dark
+            >
               <v-icon left>home</v-icon>Volver a Inicio
             </v-btn>
           </div>
@@ -121,7 +142,7 @@
       </v-row>
     </transition>
     <v-dialog v-model="dialog" persistent max-width="290">
-      <v-card :color="correcta?'green':'red'">
+      <v-card :color="correcta ? 'green' : 'red'">
         <v-card-text class="headline pt-4">
           <div align="center">
             <h2 class="white--text" v-if="correcta">Correcto</h2>
@@ -133,23 +154,24 @@
           <div align="center" class="white--text">
             En Idoma Poqomam
             <br />
-            <strong>{{mostrar_pregunta.palabra}}</strong>
+            <strong>{{ mostrar_pregunta.palabra }}</strong>
             <br />se escribe de la siguiente manera
             <br />
             <br />
             <h1>
-              <strong>{{mostrar_pregunta.correcta}}</strong>
+              <strong>{{ mostrar_pregunta.correcta }}</strong>
             </h1>
           </div>
         </v-card-text>
         <v-card-actions>
           <v-btn
-            :color="correcta?'green darken-3':'red darken-3'"
+            :color="correcta ? 'green darken-3' : 'red darken-3'"
             depressed
             dark
             block
-            @click="dialog = false,generarPregunta()"
-          >Siguiente Pregunta</v-btn>
+            @click="(dialog = false), generarPregunta()"
+            >Siguiente Pregunta</v-btn
+          >
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -177,7 +199,7 @@ export default {
           "3": "Pak",
           "4": "Rum",
           palabra: "Naranja",
-          correcta: "Araan"
+          correcta: "Araan",
         },
         {
           "1": "Alamunix",
@@ -185,7 +207,7 @@ export default {
           "3": "Tilul",
           "4": "Santiyes",
           palabra: "Limón",
-          correcta: "Alamunix"
+          correcta: "Alamunix",
         },
         {
           "1": "Rum",
@@ -193,7 +215,7 @@ export default {
           "3": "Ijiij",
           "4": "Muuy",
           palabra: "Jocote",
-          correcta: "Rum"
+          correcta: "Rum",
         },
         {
           "1": "Pak",
@@ -201,7 +223,7 @@ export default {
           "3": "Alamunix",
           "4": "Araan",
           palabra: "Anona",
-          correcta: "Pak"
+          correcta: "Pak",
         },
         {
           "1": "Tapaal",
@@ -209,7 +231,7 @@ export default {
           "3": "Rum",
           "4": "Pak",
           palabra: "Nance",
-          correcta: "Tapaal"
+          correcta: "Tapaal",
         },
         {
           "1": "Tilul",
@@ -217,7 +239,7 @@ export default {
           "3": "Muuy",
           "4": "Ijiij",
           palabra: "Zapote",
-          correcta: "Tilul"
+          correcta: "Tilul",
         },
         {
           "1": "Santiyes",
@@ -225,15 +247,15 @@ export default {
           "3": "Araan",
           "4": "Kanayah",
           palabra: "Sandía",
-          correcta: "Santiyes"
+          correcta: "Santiyes",
         },
         {
           "1": "Muuy",
           "2": "Alamunix",
           "3": "Rum",
           "4": "Pak",
-          palabra: "Chicozapote  Muuy",
-          correcta: "Muuy"
+          palabra: "Chicozapote",
+          correcta: "Muuy",
         },
         {
           "1": "Ijiij",
@@ -241,7 +263,7 @@ export default {
           "3": "Tilul",
           "4": "Tapaal",
           palabra: "Caña",
-          correcta: "Ijiij"
+          correcta: "Ijiij",
         },
         {
           "1": "Kanayah",
@@ -249,7 +271,7 @@ export default {
           "3": "Rum",
           "4": "Alamunix",
           palabra: "Banano",
-          correcta: "Kanayah"
+          correcta: "Kanayah",
         },
         {
           "1": "Pix",
@@ -257,7 +279,7 @@ export default {
           "3": "Ichaaj",
           "4": "Iik",
           palabra: "Tomate",
-          correcta: "Pix"
+          correcta: "Pix",
         },
         {
           "1": "Tz'iin",
@@ -265,7 +287,7 @@ export default {
           "3": "Aaxux",
           "4": "Sewayah",
           palabra: "Yuca",
-          correcta: "Tz'iin"
+          correcta: "Tz'iin",
         },
         {
           "1": "Ichaaj",
@@ -273,7 +295,7 @@ export default {
           "3": "Ixiim",
           "4": "Sies",
           palabra: "Chipilin",
-          correcta: "Ichaaj"
+          correcta: "Ichaaj",
         },
         {
           "1": "Iik",
@@ -281,7 +303,7 @@ export default {
           "3": "Chukte'",
           "4": "Pix",
           palabra: "Chile",
-          correcta: "Iik"
+          correcta: "Iik",
         },
         {
           "1": "Kinaq'",
@@ -289,7 +311,7 @@ export default {
           "3": "Aaxux",
           "4": "Sewayah",
           palabra: "Frijol",
-          correcta: "Kinaq'"
+          correcta: "Kinaq'",
         },
         {
           "1": "Sewayah",
@@ -297,7 +319,7 @@ export default {
           "3": "k'uxub'",
           "4": "Aaxux",
           palabra: "Cebolla",
-          correcta: "Sewayah"
+          correcta: "Sewayah",
         },
         {
           "1": "Aaxux",
@@ -305,7 +327,7 @@ export default {
           "3": "Pix",
           "4": "Tz'iin",
           palabra: "Ajo",
-          correcta: "Aaxux"
+          correcta: "Aaxux",
         },
         {
           "1": "Sies",
@@ -313,7 +335,7 @@ export default {
           "3": "Kinaq'",
           "4": "Iik",
           palabra: "Bledo",
-          correcta: "Sies"
+          correcta: "Sies",
         },
         {
           "1": "Ixiim",
@@ -321,7 +343,7 @@ export default {
           "3": "Sies",
           "4": "Chukte'",
           palabra: "Maíz",
-          correcta: "Ixiim"
+          correcta: "Ixiim",
         },
         {
           "1": "K'uum",
@@ -329,7 +351,7 @@ export default {
           "3": "k'uxub'",
           "4": "Pix",
           palabra: "Ayote",
-          correcta: "K'uum"
+          correcta: "K'uum",
         },
         {
           "1": "Aak'ach",
@@ -337,7 +359,7 @@ export default {
           "3": "Paatu'",
           "4": "Mis",
           palabra: "Pollo",
-          correcta: "Aak'ach"
+          correcta: "Aak'ach",
         },
         {
           "1": "B'ihiil",
@@ -345,7 +367,7 @@ export default {
           "3": "Aak'ach",
           "4": "Waakax",
           palabra: "Gallo",
-          correcta: "B'ihiil"
+          correcta: "B'ihiil",
         },
         {
           "1": "Paatu'",
@@ -353,7 +375,7 @@ export default {
           "3": "Kuayuh",
           "4": "Wiewa'",
           palabra: "Pato",
-          correcta: "Paatu'"
+          correcta: "Paatu'",
         },
         {
           "1": "Mis",
@@ -361,7 +383,7 @@ export default {
           "3": "Ak'ach",
           "4": "Tz'e'",
           palabra: "Gato",
-          correcta: "Mis"
+          correcta: "Mis",
         },
         {
           "1": "Waakax",
@@ -369,7 +391,7 @@ export default {
           "3": "Kuayuh",
           "4": "Ahq",
           palabra: "Vaca",
-          correcta: "Waakax"
+          correcta: "Waakax",
         },
         {
           "1": "Kuayuh",
@@ -377,7 +399,7 @@ export default {
           "3": "Ahq",
           "4": "Piip",
           palabra: "Caballo",
-          correcta: "Kuayuh"
+          correcta: "Kuayuh",
         },
         {
           "1": "Tz'e'",
@@ -385,7 +407,7 @@ export default {
           "3": "Mis",
           "4": "Wakax",
           palabra: "Perro",
-          correcta: "Tz'e'"
+          correcta: "Tz'e'",
         },
         {
           "1": "Piip",
@@ -393,7 +415,7 @@ export default {
           "3": "Wiewa'",
           "4": "Kuayuh",
           palabra: "chompipe",
-          correcta: "Piip"
+          correcta: "Piip",
         },
         {
           "1": "Ahq",
@@ -401,7 +423,7 @@ export default {
           "3": "Tz'e'",
           "4": "Tuutak'ach",
           palabra: "Marrano",
-          correcta: "Ahq"
+          correcta: "Ahq",
         },
         {
           "1": "Tuutak'ach",
@@ -409,7 +431,7 @@ export default {
           "3": "Piip",
           "4": "Ak'ach",
           palabra: "Gallina",
-          correcta: "Tuutak'ach"
+          correcta: "Tuutak'ach",
         },
         {
           "1": "Imul",
@@ -417,7 +439,7 @@ export default {
           "3": "Xojm",
           "4": "Kiej",
           palabra: "Conejo",
-          correcta: "Imul"
+          correcta: "Imul",
         },
         {
           "1": "Kiej",
@@ -425,7 +447,7 @@ export default {
           "3": "Ch'ua",
           "4": "Kuuk",
           palabra: "Venado",
-          correcta: "Kiej"
+          correcta: "Kiej",
         },
         {
           "1": "Xojm",
@@ -433,7 +455,7 @@ export default {
           "3": "Ch'ua",
           "4": "Pahar",
           palabra: "Coyote",
-          correcta: "Xojm"
+          correcta: "Xojm",
         },
         {
           "1": "Uaw",
@@ -441,7 +463,7 @@ export default {
           "3": "Kojl",
           "4": "Kok",
           palabra: "Mapache",
-          correcta: "Uaw"
+          correcta: "Uaw",
         },
         {
           "1": "K'uay",
@@ -449,7 +471,7 @@ export default {
           "3": "Kiej",
           "4": "Imul",
           palabra: "Mono",
-          correcta: "K'uay"
+          correcta: "K'uay",
         },
         {
           "1": "Ch'ua",
@@ -457,7 +479,7 @@ export default {
           "3": "Uaw",
           "4": "Kuuk",
           palabra: "Ratón",
-          correcta: "Ch'ua"
+          correcta: "Ch'ua",
         },
         {
           "1": "Kuuk",
@@ -465,7 +487,7 @@ export default {
           "3": "Pahar",
           "4": "Kok",
           palabra: "Ardilla",
-          correcta: "Kuuk"
+          correcta: "Kuuk",
         },
         {
           "1": "Pahar",
@@ -473,7 +495,7 @@ export default {
           "3": "Imul",
           "4": "Kiej",
           palabra: "Zorrillo",
-          correcta: "Pahar"
+          correcta: "Pahar",
         },
         {
           "1": "Kok",
@@ -481,7 +503,7 @@ export default {
           "3": "Uaw",
           "4": "Kojl",
           palabra: "Tortuga",
-          correcta: "Kok"
+          correcta: "Kok",
         },
         {
           "1": "Tukx",
@@ -489,8 +511,8 @@ export default {
           "3": "Ch'ua",
           "4": "K'uay",
           palabra: "Tacuacín",
-          correcta: "Tukx"
-        }
+          correcta: "Tukx",
+        },
       ],
       respuestas: [],
       anterior: "",
@@ -498,7 +520,7 @@ export default {
       preguntas_respondidas: [],
       fondo: undefined,
       hechas: [],
-      conteo: undefined
+      conteo: undefined,
     };
   },
   methods: {
@@ -518,7 +540,7 @@ export default {
     generarPregunta() {
       for (let index = 0; index < 2; index++) {
         this.pregunta = Math.round(Math.random() * (39 - 0) + 0);
-        this.hechas.forEach(p => {
+        this.hechas.forEach((p) => {
           if (this.pregunta == p) {
             index = 0;
           } else {
@@ -531,7 +553,7 @@ export default {
         this.mostrar_pregunta[1],
         this.mostrar_pregunta[2],
         this.mostrar_pregunta[3],
-        this.mostrar_pregunta[4]
+        this.mostrar_pregunta[4],
       ];
       for (let i = respuestas.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * i);
@@ -552,8 +574,6 @@ export default {
         } else {
           audio.volume = 0;
         }
-
-        audio.play();
       } else {
         this.registrar(this.mostrar_pregunta, false);
         this.correcta = false;
@@ -563,8 +583,16 @@ export default {
         } else {
           audio.volume = 0;
         }
-        audio.play();
       }
+      audio
+        .play()
+        .then(function() {
+          // Automatic playback started!
+        })
+        .catch(function(error) {
+          // Automatic playback failed.
+          // Show a UI element to let the user manually start playback.
+        });
       this.dialog = true;
     },
     registrar(pregunta, correcta) {
@@ -574,7 +602,7 @@ export default {
     reset() {
       //this.fondo.pause();
       this.$emit("reset");
-    }
+    },
   },
   computed: {
     mostrar_pregunta() {
@@ -584,11 +612,10 @@ export default {
       return Math.round((this.paso / 10) * 100) - 10;
     },
     correctas() {
-      return this.preguntas_respondidas.filter(e => e.correcta == true);
-    }
-  }
+      return this.preguntas_respondidas.filter((e) => e.correcta == true);
+    },
+  },
 };
 </script>
 
-<style>
-</style>
+<style></style>

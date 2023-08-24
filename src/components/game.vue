@@ -71,11 +71,13 @@
             class="grey--text text--lighten-1"
           >
             <i>
-              <small>Programación y Desarrollo PWA</small>
+              <small>Programación, Desarrollo y Funcionamiento</small>
               <br />
               <small>Jorge Hernández</small>
               <br />
-              <small>Versión 0.3</small>
+              <small>Textos y Traducciones</small>
+              <br />
+              <small>Arnoldo Lázaro</small>
             </i>
           </a>
         </p>
