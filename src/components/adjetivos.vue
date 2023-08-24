@@ -1,30 +1,32 @@
 <template>
   <div>
-    <v-row v-if="paso==0" fill-height fluid>
+    <v-row v-if="paso == 0" fill-height fluid>
       <v-col cols="12" align="center" justify="center">
         <transition name="slide-fade">
           <div>
             <h1 class="grey--text text--darken-2">¿Estás Listo?</h1>
             <br />
-            <h1 style="font-size:200px; " class="grey--text text--darken-2">{{tiempo}}</h1>
+            <h1 style="font-size:200px; " class="grey--text text--darken-2">
+              {{ tiempo }}
+            </h1>
           </div>
         </transition>
       </v-col>
     </v-row>
     <transition name="slide-fade">
-      <v-row v-if="paso>0 && paso<11">
+      <v-row v-if="paso > 0 && paso < 11">
         <v-col cols="12" class="pt-0">
           <v-row>
             <v-col cols="12">
               <v-row>
                 <v-col cols="6" class="py-0 my-0">
                   <div align="left">
-                    <span>Pregunta {{paso}} de 10</span>
+                    <span>Pregunta {{ paso }} de 10</span>
                   </div>
                 </v-col>
                 <v-col cols="6" class="py-0 my-0">
                   <div align="right">
-                    <div align="right">Correctas {{correctas.length}}</div>
+                    <div align="right">Correctas {{ correctas.length }}</div>
                   </div>
                 </v-col>
               </v-row>
@@ -40,24 +42,27 @@
             </v-col>
             <v-col cols="12" class="mb-5">
               <v-card elevation="0" style="height:200px;">
-                <div class="grey--text text--darken-3" align="center" style="padding-top:10px;">
+                <div
+                  class="grey--text text--darken-3"
+                  align="center"
+                  style="padding-top:10px;"
+                >
                   <h5>
                     ¿Como se escribe el siguiente adjetivo
                     <br />en Idioma Poqomam?
                   </h5>
                   <br />
-                  <h2
-                    class="grey--text text--darken-2"
-                    style="font-size:60px;"
-                  >{{mostrar_pregunta.palabra}}</h2>
+                  <h2 class="grey--text text--darken-2" style="font-size:60px;">
+                    {{ mostrar_pregunta.palabra }}
+                  </h2>
                 </div>
               </v-card>
             </v-col>
-            <template v-for="(respuesta,index) in respuestas">
+            <template v-for="(respuesta, index) in respuestas">
               <v-col
-                :key="'r'+index"
+                :key="'r' + index"
                 cols="6"
-                :class="(index%2)?'pt-0 pr-3':'pt-0 pr-1'"
+                :class="index % 2 ? 'pt-0 pr-3' : 'pt-0 pr-1'"
                 align="center"
                 justify="center"
                 md="6"
@@ -70,10 +75,12 @@
                     @click="responder(respuesta)"
                   >
                     <div
-                      :class="hover?'info--text':'grey--text text--darken-1'"
+                      :class="
+                        hover ? 'info--text' : 'grey--text text--darken-1'
+                      "
                       style="height:80px; padding-top:25px;"
                     >
-                      <h2>{{respuesta}}</h2>
+                      <h2>{{ respuesta }}</h2>
                     </div>
                   </v-card>
                 </v-hover>
@@ -84,17 +91,23 @@
       </v-row>
     </transition>
     <transition name="slide-fade">
-      <v-row align="center" v-if="paso>10" justify="center">
+      <v-row align="center" v-if="paso > 10" justify="center">
         <v-col cols="12" class="mb-5">
           <v-card elevation="0" style="height:200px;">
-            <div class="grey--text text--darken-3" align="center" style="padding-top:10px; ">
+            <div
+              class="grey--text text--darken-3"
+              align="center"
+              style="padding-top:10px; "
+            >
               <h3 style="font-size:20px;">
                 - Adjetivos -
                 <br />Respuestas Correctas
               </h3>
               <br />
               <div style="height:150px;">
-                <h2 class="grey--text text--darken-2" style="font-size:150px;">{{correctas.length}}</h2>
+                <h2 class="grey--text text--darken-2" style="font-size:150px;">
+                  {{ correctas.length }}
+                </h2>
               </div>
             </div>
           </v-card>
@@ -113,7 +126,15 @@
               <v-icon left>autorenew</v-icon>Intentar de Nuevo
             </v-btn>
             <br />
-            <v-btn x-large color="grey darken-1" small class="ma-3" @click="reset()" depressed dark>
+            <v-btn
+              x-large
+              color="grey darken-1"
+              small
+              class="ma-3"
+              @click="reset()"
+              depressed
+              dark
+            >
               <v-icon left>home</v-icon>Volver a Inicio
             </v-btn>
           </div>
@@ -121,7 +142,7 @@
       </v-row>
     </transition>
     <v-dialog v-model="dialog" persistent max-width="290">
-      <v-card :color="correcta?'green':'red'">
+      <v-card :color="correcta ? 'green' : 'red'">
         <v-card-text class="headline pt-4">
           <div align="center">
             <h2 class="white--text" v-if="correcta">Correcto</h2>
@@ -133,23 +154,24 @@
           <div align="center" class="white--text">
             En Idoma Poqomam
             <br />
-            <strong>{{mostrar_pregunta.palabra}}</strong>
+            <strong>{{ mostrar_pregunta.palabra }}</strong>
             <br />se escribe de la siguiente manera
             <br />
             <br />
             <h1>
-              <strong>{{mostrar_pregunta.correcta}}</strong>
+              <strong>{{ mostrar_pregunta.correcta }}</strong>
             </h1>
           </div>
         </v-card-text>
         <v-card-actions>
           <v-btn
-            :color="correcta?'green darken-3':'red darken-3'"
+            :color="correcta ? 'green darken-3' : 'red darken-3'"
             depressed
             dark
             block
-            @click="dialog = false,generarPregunta()"
-          >Siguiente Pregunta</v-btn>
+            @click="(dialog = false), generarPregunta()"
+            >Siguiente Pregunta</v-btn
+          >
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -177,7 +199,7 @@ export default {
           "3": "Q'an",
           "4": "Eht",
           palabra: "Grande",
-          correcta: "Nim"
+          correcta: "Nim",
         },
         {
           "1": "Eht",
@@ -185,7 +207,7 @@ export default {
           "3": "Saq",
           "4": "Suq",
           palabra: "Bravo",
-          correcta: "Eht"
+          correcta: "Eht",
         },
         {
           "1": "Q'an",
@@ -193,7 +215,7 @@ export default {
           "3": "B'ajal",
           "4": "Chaq'lam",
           palabra: "Amarillo",
-          correcta: "Q'an"
+          correcta: "Q'an",
         },
         {
           "1": "Riluam",
@@ -201,7 +223,7 @@ export default {
           "3": "Ch'am",
           "4": "ch'ulik",
           palabra: "Pequeño",
-          correcta: "Riluam"
+          correcta: "Riluam",
         },
         {
           "1": "Ki'",
@@ -209,7 +231,7 @@ export default {
           "3": "nim ruaq",
           "4": "k'oyiniel",
           palabra: "Dulce",
-          correcta: "Ki'"
+          correcta: "Ki'",
         },
         {
           "1": "Suq",
@@ -217,7 +239,7 @@ export default {
           "3": "Koloxoh",
           "4": "Kaq",
           palabra: "Delicioso",
-          correcta: "Suq"
+          correcta: "Suq",
         },
         {
           "1": "Saq",
@@ -225,7 +247,7 @@ export default {
           "3": "B'ajal",
           "4": "B'ichiniel",
           palabra: "Blanco",
-          correcta: "Saq"
+          correcta: "Saq",
         },
         {
           "1": "B'ajal",
@@ -233,7 +255,7 @@ export default {
           "3": "Sirik riij",
           "4": "tuq' tuq'",
           palabra: "Bonito",
-          correcta: "B'ajal"
+          correcta: "B'ajal",
         },
         {
           "1": "Chaq'lam",
@@ -241,7 +263,7 @@ export default {
           "3": "eht",
           "4": "Q'an",
           palabra: "Maduro",
-          correcta: "Chaq'lam"
+          correcta: "Chaq'lam",
         },
         {
           "1": "Ch'ulik",
@@ -249,7 +271,7 @@ export default {
           "3": "Riluam",
           "4": "Suq",
           palabra: "Sucio",
-          correcta: "Ch'ulik"
+          correcta: "Ch'ulik",
         },
         {
           "1": "Q'uun",
@@ -257,7 +279,7 @@ export default {
           "3": "Ch'ulik",
           "4": "K'oyiniel",
           palabra: "Lento",
-          correcta: "Q'uun"
+          correcta: "Q'uun",
         },
         {
           "1": "K'oyiniel",
@@ -265,7 +287,7 @@ export default {
           "3": "Chuh",
           "4": "Nim ruaq",
           palabra: "Juguetón",
-          correcta: "K'oyiniel"
+          correcta: "K'oyiniel",
         },
         {
           "1": "Nim ruaq",
@@ -273,7 +295,7 @@ export default {
           "3": "Q'eq",
           "4": "B'ichiniel",
           palabra: "Largo (a)",
-          correcta: "Nim ruaq"
+          correcta: "Nim ruaq",
         },
         {
           "1": "Chuh",
@@ -281,7 +303,7 @@ export default {
           "3": "K'ah",
           "4": "Sirik riij",
           palabra: "Maloliente",
-          correcta: "Chuh"
+          correcta: "Chuh",
         },
         {
           "1": "Ch'am",
@@ -289,7 +311,7 @@ export default {
           "3": "B'ajal",
           "4": "Chaq'lam",
           palabra: "Ácido",
-          correcta: "Ch'am"
+          correcta: "Ch'am",
         },
         {
           "1": "Koloxoh",
@@ -297,7 +319,7 @@ export default {
           "3": "Tuq' tuq'",
           "4": "Nim",
           palabra: "Comilón",
-          correcta: "Koloxoh"
+          correcta: "Koloxoh",
         },
         {
           "1": "Kaq",
@@ -305,7 +327,7 @@ export default {
           "3": "Riluam",
           "4": "Eht",
           palabra: "Rojo",
-          correcta: "Kaq"
+          correcta: "Kaq",
         },
         {
           "1": "Q'eq",
@@ -313,7 +335,7 @@ export default {
           "3": "Ki'",
           "4": "Suq",
           palabra: "Negro",
-          correcta: "Q'eq"
+          correcta: "Q'eq",
         },
         {
           "1": "B'ichiniel",
@@ -321,7 +343,7 @@ export default {
           "3": "B'ajal",
           "4": "Chaq'lam",
           palabra: "Cantor",
-          correcta: "B'ichiniel"
+          correcta: "B'ichiniel",
         },
         {
           "1": "K'ah",
@@ -329,7 +351,7 @@ export default {
           "3": "Q'uun",
           "4": "K'oyiniel",
           palabra: "Picante",
-          correcta: "K'ah"
+          correcta: "K'ah",
         },
         {
           "1": "Sirik riij",
@@ -337,7 +359,7 @@ export default {
           "3": "Nim ruaq",
           "4": "koloxoh",
           palabra: "Giro",
-          correcta: "Sirik riij"
+          correcta: "Sirik riij",
         },
         {
           "1": "Tuq' tuq'",
@@ -345,7 +367,7 @@ export default {
           "3": "Kaq",
           "4": "Koloxoh",
           palabra: "Clueca",
-          correcta: "Tuq' tuq'"
+          correcta: "Tuq' tuq'",
         },
         {
           "1": "Sikiil",
@@ -353,7 +375,7 @@ export default {
           "3": "K'ah",
           "4": "B'ajal",
           palabra: "Haragan (a)",
-          correcta: "Sikiil"
+          correcta: "Sikiil",
         },
         {
           "1": "Nim paam",
@@ -361,7 +383,7 @@ export default {
           "3": "Nim",
           "4": "Pi'y",
           palabra: "Grueso",
-          correcta: "Nim paam"
+          correcta: "Nim paam",
         },
         {
           "1": "Pi'y",
@@ -369,8 +391,8 @@ export default {
           "3": "Riluam",
           "4": "Sikiil",
           palabra: "Pequeñito",
-          correcta: "Pi'y"
-        }
+          correcta: "Pi'y",
+        },
       ],
       respuestas: [],
       anterior: "",
@@ -378,7 +400,7 @@ export default {
       preguntas_respondidas: [],
       fondo: undefined,
       hechas: [],
-      conteo: undefined
+      conteo: undefined,
     };
   },
   methods: {
@@ -398,7 +420,7 @@ export default {
     generarPregunta() {
       for (let index = 0; index < 2; index++) {
         this.pregunta = Math.round(Math.random() * (24 - 0) + 0);
-        this.hechas.forEach(p => {
+        this.hechas.forEach((p) => {
           if (this.pregunta == p) {
             index = 0;
           } else {
@@ -411,7 +433,7 @@ export default {
         this.mostrar_pregunta[1],
         this.mostrar_pregunta[2],
         this.mostrar_pregunta[3],
-        this.mostrar_pregunta[4]
+        this.mostrar_pregunta[4],
       ];
       for (let i = respuestas.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * i);
@@ -432,8 +454,6 @@ export default {
         } else {
           audio.volume = 0;
         }
-
-        audio.play();
       } else {
         this.registrar(this.mostrar_pregunta, false);
         this.correcta = false;
@@ -443,8 +463,16 @@ export default {
         } else {
           audio.volume = 0;
         }
-        audio.play();
       }
+      audio
+        .play()
+        .then(function() {
+          // Automatic playback started!
+        })
+        .catch(function(error) {
+          // Automatic playback failed.
+          // Show a UI element to let the user manually start playback.
+        });
       this.dialog = true;
     },
     registrar(pregunta, correcta) {
@@ -454,7 +482,7 @@ export default {
     reset() {
       //this.fondo.pause();
       this.$emit("reset");
-    }
+    },
   },
   computed: {
     mostrar_pregunta() {
@@ -464,11 +492,10 @@ export default {
       return Math.round((this.paso / 10) * 100) - 10;
     },
     correctas() {
-      return this.preguntas_respondidas.filter(e => e.correcta == true);
-    }
-  }
+      return this.preguntas_respondidas.filter((e) => e.correcta == true);
+    },
+  },
 };
 </script>
 
-<style>
-</style>
+<style></style>
