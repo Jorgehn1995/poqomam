@@ -454,6 +454,15 @@ export default {
         } else {
           audio.volume = 0;
         }
+        audio
+          .play()
+          .then(function() {
+            // Automatic playback started!
+          })
+          .catch(function() {
+            // Automatic playback failed.
+            // Show a UI element to let the user manually start playback.
+          });
       } else {
         this.registrar(this.mostrar_pregunta, false);
         this.correcta = false;
@@ -463,16 +472,17 @@ export default {
         } else {
           audio.volume = 0;
         }
+        audio
+          .play()
+          .then(function() {
+            // Automatic playback started!
+          })
+          .catch(function() {
+            // Automatic playback failed.
+            // Show a UI element to let the user manually start playback.
+          });
       }
-      audio
-        .play()
-        .then(function() {
-          // Automatic playback started!
-        })
-        .catch(function(error) {
-          // Automatic playback failed.
-          // Show a UI element to let the user manually start playback.
-        });
+
       this.dialog = true;
     },
     registrar(pregunta, correcta) {
